@@ -1,0 +1,17 @@
+-- Drop existing tables if they exist
+SET FOREIGN_KEY_CHECKS = 0;  -- Disable foreign key checks
+
+DROP TABLE IF EXISTS accounts;
+
+SET FOREIGN_KEY_CHECKS = 1;  -- Enable foreign key checks again
+
+-- Create necessary tables
+CREATE TABLE accounts (
+    account_id INT AUTO_INCREMENT PRIMARY KEY,
+    account_name VARCHAR(255) NOT NULL,
+    balance DECIMAL(10, 2) NOT NULL
+) ENGINE=InnoDB;  -- Specify InnoDB as the storage engine
+
+-- Insert sample data (optional)
+INSERT INTO accounts (account_name, balance) VALUES ('Account 1', 1000.00);
+INSERT INTO accounts (account_name, balance) VALUES ('Account 2', 1500.00);
